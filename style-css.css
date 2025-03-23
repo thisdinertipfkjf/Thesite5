@@ -1,0 +1,199 @@
+:root {
+    --primary: #222;
+    --secondary: #444;
+    --accent: #00ff00;
+    --text: #f0f0f0;
+    --danger: #ff3333;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #111;
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--primary);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid var(--accent);
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.intro {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    border-left: 5px solid var(--accent);
+}
+
+.card {
+    background-color: var(--secondary);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    background-color: var(--primary);
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 10px 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+.hidden {
+    display: none;
+}
+
+input[type="text"], input[type="password"] {
+    background-color: var(--primary);
+    color: var(--text);
+    border: 1px solid var(--accent);
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.chat-container {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--accent);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--primary);
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.admin-message {
+    background-color: rgba(255, 0, 0, 0.2);
+    border-left: 3px solid red;
+}
+
+.user-message {
+    background-color: rgba(0, 255, 0, 0.2);
+    border-left: 3px solid var(--accent);
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    cursor: pointer;
+    border: 1px solid var(--accent);
+    margin-right: 5px;
+}
+
+.tab.active {
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.admin-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    background: none;
+    border: none;
+    color: var(--secondary);
+    padding: 5px;
+    cursor: default;
+}
+
+.admin-button:hover {
+    background: none;
+    color: var(--accent);
+}
+
+.user-list {
+    margin-bottom: 20px;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--accent);
+}
+
+.online {
+    color: #00ff00;
+}
+
+.offline {
+    color: #ff0000;
+}
+
+.member-actions button {
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.notification-panel {
+    margin-bottom: 20px;
+}
+
+textarea {
+    background-color: var(--primary);
+    color: var(--text);
+    border: 1px solid var(--accent);
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    height: 100px;
+    resize: vertical;
+}

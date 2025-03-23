@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Black Wolf's Hacking Group</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>THE BLACK WOLF'S HACKING GROUP</h1>
+        <button class="admin-button" id="adminButton">A</button>
+    </header>
+    
+    <div class="container">
+        <div id="landingPage">
+            <div class="intro">
+                <p><strong>"Welcome to the lair of the Black Wolf! Test your knowledge by passing the test. If you score 18/20 or higher, you'll be accepted into the group. Right after passing the test, you will get your member's username and your password is theblackwolf7"</strong> -by theblackwolf</p>
+            </div>
+            
+            <div class="card">
+                <h2>Choose Your Category</h2>
+                <p>Before starting the test, select your area of expertise:</p>
+                <button id="bugBountyBtn">Bug Bounty Hunter</button>
+                <button id="pentesterBtn">Pentester</button>
+                <button id="hackerBtn">Hacker</button>
+            </div>
+        </div>
+        
+        <div id="testPage" class="hidden">
+            <div class="card">
+                <h2 id="testTitle">Hacking Test</h2>
+                <p id="categoryDisplay"></p>
+                <div id="questionsContainer">
+                    <!-- Questions will be added here dynamically -->
+                </div>
+                <button id="submitTestBtn">Submit Test</button>
+            </div>
+        </div>
+        
+        <div id="resultPage" class="hidden">
+            <div class="card">
+                <h2>Test Results</h2>
+                <p id="scoreDisplay"></p>
+                <div id="successMessage" class="hidden">
+                    <p>Congratulations! You've been accepted into The Black Wolf's Hacking Group.</p>
+                    <p>Your username: <span id="usernameDisplay"></span></p>
+                    <p>Your password: theblackwolf7</p>
+                    <button id="loginBtn">Login Now</button>
+                </div>
+                <div id="failMessage" class="hidden">
+                    <p>Sorry, you didn't reach the required score (18/20) to join the group.</p>
+                    <button id="tryAgainBtn">Try Again</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="loginPage" class="hidden">
+            <div class="card">
+                <h2>Login</h2>
+                <input type="text" id="usernameInput" placeholder="Username">
+                <input type="password" id="passwordInput" placeholder="Password">
+                <button id="submitLoginBtn">Login</button>
+                <p id="loginError" class="hidden" style="color: var(--danger);">Invalid username or password.</p>
+            </div>
+        </div>
+        
+        <div id="memberPage" class="hidden">
+            <div class="tabs">
+                <div class="tab active" data-tab="generalChat">General Chat</div>
+                <div class="tab" data-tab="teamChat">Team Chat</div>
+                <div class="tab" data-tab="profile">Profile</div>
+            </div>
+            
+            <div class="tab-content active" id="generalChat">
+                <div class="card">
+                    <h2>General Chat</h2>
+                    <div class="chat-container" id="generalChatContainer">
+                        <div class="chat-message admin-message">
+                            <strong>TheBlackWolf (Admin):</strong> Welcome to the general chat! This is where all members can communicate.
+                        </div>
+                    </div>
+                    <input type="text" id="generalChatInput" placeholder="Type your message...">
+                    <button id="sendGeneralChatBtn">Send</button>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="teamChat">
+                <div class="card">
+                    <h2 id="teamChatTitle">Team Chat</h2>
+                    <div class="chat-container" id="teamChatContainer">
+                        <div class="chat-message admin-message">
+                            <strong>TheBlackWolf (Admin):</strong> Welcome to your team chat! Collaborate with your team members here.
+                        </div>
+                    </div>
+                    <input type="text" id="teamChatInput" placeholder="Type your message...">
+                    <button id="sendTeamChatBtn">Send</button>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="profile">
+                <div class="card">
+                    <h2>Profile</h2>
+                    <p>Username: <span id="profileUsername"></span></p>
+                    <p>Category: <span id="profileCategory"></span></p>
+                    <p>Role: <span id="profileRole"></span></p>
+                    <button id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="adminLoginPage" class="hidden">
+            <div class="card">
+                <h2>Admin Login</h2>
+                <input type="password" id="adminPasswordInput" placeholder="Admin Password">
+                <button id="submitAdminLoginBtn">Login</button>
+                <p id="adminLoginError" class="hidden" style="color: var(--danger);">Invalid password.</p>
+            </div>
+        </div>
+        
+        <div id="adminPage" class="hidden">
+            <div class="tabs">
+                <div class="tab active" data-tab="adminMembers">Members</div>
+                <div class="tab" data-tab="adminChats">Chats</div>
+                <div class="tab" data-tab="adminNotifications">Notifications</div>
+            </div>
+            
+            <div class="tab-content active" id="adminMembers">
+                <div class="card">
+                    <h2>Members Management</h2>
+                    <div class="user-list" id="membersListContainer">
+                        <!-- Members will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="adminChats">
+                <div class="tabs" id="adminChatTabs">
+                    <div class="tab active" data-tab="adminGeneralChat">General</div>
+                    <div class="tab" data-tab="adminBugBountyChat">Bug Bounty</div>
+                    <div class="tab" data-tab="adminPentesterChat">Pentester</div>
+                    <div class="tab" data-tab="adminHackerChat">Hacker</div>
+                </div>
+                
+                <div class="tab-content active" id="adminGeneralChat">
+                    <div class="card">
+                        <h2>General Chat</h2>
+                        <div class="chat-container" id="adminGeneralChatContainer">
+                            <!-- Chat messages will be added here dynamically -->
+                        </div>
+                        <input type="text" id="adminGeneralChatInput" placeholder="Type your message...">
+                        <button id="sendAdminGeneralChatBtn">Send</button>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="adminBugBountyChat">
+                    <div class="card">
+                        <h2>Bug Bounty Team Chat</h2>
+                        <div class="chat-container" id="adminBugBountyChatContainer">
+                            <!-- Chat messages will be added here dynamically -->
+                        </div>
+                        <input type="text" id="adminBugBountyChatInput" placeholder="Type your message...">
+                        <button id="sendAdminBugBountyChatBtn">Send</button>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="adminPentesterChat">
+                    <div class="card">
+                        <h2>Pentester Team Chat</h2>
+                        <div class="chat-container" id="adminPentesterChatContainer">
+                            <!-- Chat messages will be added here dynamically -->
+                        </div>
+                        <input type="text" id="adminPentesterChatInput" placeholder="Type your message...">
+                        <button id="sendAdminPentesterChatBtn">Send</button>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="adminHackerChat">
+                    <div class="card">
+                        <h2>Hacker Team Chat</h2>
+                        <div class="chat-container" id="adminHackerChatContainer">
+                            <!-- Chat messages will be added here dynamically -->
+                        </div>
+                        <input type="text" id="adminHackerChatInput" placeholder="Type your message...">
+                        <button id="sendAdminHackerChatBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="adminNotifications">
+                <div class="card">
+                    <h2>Send Notifications</h2>
+                    <div class="notification-panel">
+                        <textarea id="notificationContent" placeholder="Enter notification content..."></textarea>
+                        <select id="notificationTarget">
+                            <option value="all">All Members</option>
+                            <option value="bugbounty">Bug Bounty Team</option>
+                            <option value="pentester">Pentester Team</option>
+                            <option value="hacker">Hacker Team</option>
+                        </select>
+                        <button id="sendNotificationBtn">Send Notification</button>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="adminLogoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
